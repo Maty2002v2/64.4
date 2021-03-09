@@ -43,16 +43,14 @@ class zadanie64_4 :public file{
 		int countXErr = 0;
 		int countYErr = 0;
 		int numPicture = 0;
-		int row = 0;
 
 		struct data {
-		    string name;
-		    int numPic;
-		    int value;
+		    string name;	//nazwa: gdzie wystapil blad czy w wierszu "x" czy kolumnie "y"
+		    int numPic;		//numer zdj
+		    int value;		//ktory wiersz/kolumna
 		};
 		
 		vector<data> sub;
-		vector<string> picture;
 	public:
 		void checkRows();
 		void checkColumns();
@@ -70,7 +68,7 @@ void zadanie64_4::checkRows() {
 			}	
 		}
 		
-		if (countX1 % 2 == 0) {	//sprawdznie czy liczba jedynek jest parzysta i przypisanie zmiennej x odpowiedniej wartoœci char 48 = 0, 49 = 1 
+		if (countX1 % 2 == 0) {	//sprawdznie czy liczba jedynek jest parzysta i przypisanie zmiennej x odpowiedniej wartoÅ›ci char 48 = 0, 49 = 1 
 			x = 48;
 		} else {
 			x = 49;
@@ -97,7 +95,7 @@ void zadanie64_4::checkColumns() {
 			}
 		}
 		
-		if (countY1 % 2 == 0) {	//sprawdznie czy liczba jedynek jest parzysta i przypisanie zmiennej y odpowiedniej wartoœci char 48 = 0, 49 = 1 
+		if (countY1 % 2 == 0) {	//sprawdznie czy liczba jedynek jest parzysta i przypisanie zmiennej y odpowiedniej wartoÅ›ci char 48 = 0, 49 = 1 
 			y = 48;
 		} else {
 			y = 49;
@@ -125,32 +123,7 @@ void zadanie64_4::checkPicture() {
 			this->checkColumns();
 			lines.clear();
 		}
-	}
-	
-	vector<int> black_list;
-		
-//	for ( int i = 0; i < sub.size() - 1; i++ ) {
-//		for ( int j = 0; j < sub.size() - 1; j++ ) { 
-//			if (sub[i].numPic == sub[j].numPic) {
-//				cout<<sub[i].numPic<<" | "<<sub[j].name<<endl;
-////				if (sub[i].name == sub[j].name) {
-////					if (!(find(black_list.begin(), black_list.end(), sub[i].numPic) != black_list.end())) {
-////						black_list.push_back(sub[i].numPic);
-//////						sub.erase (sub.begin()+j);
-////					}
-//////				cout<<sub[i].numPic<<" | "<<sub[j].name<<endl;
-//////				sub.erase (sub.begin()+j);
-////				}
-//			}
-//		}
-//	}
-	
-
-	
-	for ( int i = 0; i < sub.size() - 1; i++ ) { 
-		cout<<sub[i].numPic<<" | "<<sub[i].name<<endl;
-	}
-
+	}	
 }
 
 int main(int argc, char** argv) {
